@@ -31,53 +31,61 @@
                             <a class="nav-link text-dark"
                                href="@Url.Action("Main", "Fireman")">Main Page</a>
                         </li>
-                        @if (!userService.IsFireAdmin())
+                        @if (userService.GetUser().Fireman != null)
                         {
+                            @if (!userService.IsFireAdmin())
+                            {
+                                <li>
+                                    <a class="nav-link text-dark"
+                                       href="@Url.Action("MyProfile", "Fireman")">My Profile</a>
+                                </li>
+                            }
+                            @if (userService.IsFireAdmin())
+                            {
+                                <li>
+                                    <a class="nav-link text-dark"
+                                       href="@Url.Action("Index", "Fireman")">All Workers</a>
+                                </li>
+                            }
                             <li>
                                 <a class="nav-link text-dark"
-                                   href="@Url.Action("MyProfile", "Fireman")">My Profile</a>
+                                   href="@Url.Action("Index", "FiremanTeam")">All FireTeams</a>
                             </li>
-                        }
-                        @if (userService.IsFireAdmin())
-                        {
+
                             <li>
                                 <a class="nav-link text-dark"
-                                   href="@Url.Action("Index", "Fireman")">All Workers</a>
+                                   href="@Url.Action("Index", "FireTruck")">All Trucks</a>
                             </li>
+
+                            <li>
+                                <a class="nav-link text-dark"
+                                   href="@Url.Action("Index", "FireIncident")">All Fire Incidents</a>
+                            </li>
+                            @if (userService.IsFireAdmin())
+                            {
+                                <li>
+                                    <a class="nav-link text-dark"
+                                       href="@Url.Action("CreateFireman", "Fireman")">Add New Worker</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link text-dark"
+                                       href="@Url.Action("CreateFiremanTeam", "FiremanTeam")">Add New Team</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link text-dark"
+                                       href="@Url.Action("AddFireTruck", "FireTruck")">Add New Truck</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link text-dark"
+                                       href="@Url.Action("AddFireIncident", "FireIncident")">New Fire Incident</a>
+                                </li>
+                            }
                         }
-                        <li>
-                            <a class="nav-link text-dark"
-                               href="@Url.Action("Index", "FiremanTeam")">All FireTeams</a>
-                        </li>
 
                         <li>
                             <a class="nav-link text-dark"
-                               href="@Url.Action("Index", "FireTruck")">All Trucks</a>
+                               href="@Url.Action("Exit", "Fireman")">Exit</a>
                         </li>
-
-                        <li>
-                            <a class="nav-link text-dark"
-                               href="@Url.Action("Index", "FireIncident")">All Fire Incidents</a>
-                        </li>
-                        @if (userService.IsFireAdmin())
-                        {
-                            <li>
-                                <a class="nav-link text-dark"
-                                   href="@Url.Action("CreateFireman", "Fireman")">Add New Worker</a>
-                            </li>
-                            <li>
-                                <a class="nav-link text-dark"
-                                   href="@Url.Action("CreateFiremanTeam", "FiremanTeam")">Add New Team</a>
-                            </li>
-                            <li>
-                                <a class="nav-link text-dark"
-                                   href="@Url.Action("AddFireTruck", "FireTruck")">Add New Truck</a>
-                            </li>
-                            <li>
-                                <a class="nav-link text-dark"
-                                   href="@Url.Action("AddFireIncident", "FireIncident")">New Fire Incident</a>
-                            </li>
-                        }
                     </ul>
                 </div>
             </div>

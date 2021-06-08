@@ -1,7 +1,11 @@
-﻿@model WebApplication1.Models.FiremanModels.FireIncidentViewModel
+﻿@{
+    ViewData["Title"] = "FireIncidents";
+    Layout = "~/Views/Fireman/_LayoutFireman.cshtml";
+}
+@model WebApplication1.Models.FiremanModels.FireIncidentViewModel
 @using WebApplication1.Services
 @inject IUserService userService
-@using WebApplication1.EfStuff.Model.Firemen 
+@using WebApplication1.EfStuff.Model.Firemen
 
 <h1>Edit fire incident</h1>
 <form action="@Url.Action("Edit", "FireIncident")" method="post">

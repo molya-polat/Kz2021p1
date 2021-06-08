@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -86,6 +87,11 @@ namespace WebApplication1.Controllers
                 return View(model);
             }
             return RedirectToAction("Main", "Fireman");
-        }     
+        }
+        public async Task<IActionResult> Exit()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Login", "Citizen");
+        }
     }
 }

@@ -30,6 +30,7 @@
         <th>Team State</th>
         <th>Quantity</th>
         <th>Truck Id</th>
+        <th>Truck State</th>
         @if (userService.IsFireAdmin())
         {
             <th>Delete</th>
@@ -46,6 +47,7 @@
             <td>@team.TeamState</td>
             <td>@team.FiremanCount</td>
             <td>@team.TruckId</td>
+            <td>@team.TruckState</td>
             @if (userService.IsFireAdmin())
             {
                 <td><input type="button" class="delete" data-name="@team.Id" value="delete" /></td>

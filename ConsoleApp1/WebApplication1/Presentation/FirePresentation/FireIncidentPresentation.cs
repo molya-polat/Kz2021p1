@@ -37,11 +37,11 @@ namespace WebApplication1.Presentation.FirePresentation
                 {
                     team.TeamState = TeamState.Busy;
                     newModel.FiremanTeam = team;
+                    _firemanTeamRepository.Save(team);
                 }
                 newModel.Reason = "Not defined";
                 newModel.Status = IncidentStatus.Fire;
-                newModel.Date = DateTime.Now;
-                _firemanTeamRepository.Save(team);
+                newModel.Date = DateTime.Now;              
             }
             else
             {

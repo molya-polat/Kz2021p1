@@ -58,10 +58,13 @@ namespace WebApplication1.Presentation.FirePresentation
 			{
 				return false;
 			}
-			var fireman = _firemanTeamRepository.Get(model.FiremanTeam.Id);
-			fireman.TruckId = null;
-			fireman.FireTruck = null;
-			_firemanTeamRepository.Save(fireman);
+            if (model.FiremanTeam != null)
+            {
+                var fireman = _firemanTeamRepository.Get(model.FiremanTeam.Id);
+                fireman.TruckId = null;
+                fireman.FireTruck = null;
+                _firemanTeamRepository.Save(fireman);
+            }			
 			_fireTruckRepository.Remove(model);
 			return true;
 		}
